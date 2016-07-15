@@ -554,7 +554,7 @@ class LocalProcessSpawner(Spawner):
 
 
 class SSHSpawner(Spawner):
-    remote_host = "corigrid.nersc.gov"
+    remote_host = "cori04-224.nersc.gov"
     pid = None
     client = Instance(paramiko.client.SSHClient)
 
@@ -584,7 +584,8 @@ class SSHSpawner(Spawner):
             JPY_USER=self.user.name,
             JPY_COOKIE_NAME=self.user.server.cookie_name,
             JPY_BASE_URL=self.user.server.base_url,
-            JPY_HUB_PREFIX=self.hub.server.base_url
+            JPY_HUB_PREFIX=self.hub.server.base_url,
+            PATH="/global/common/cori/software/python/3.5-anaconda/bin:/usr/common/usg/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/lib/mit/bin:/usr/lib/mit/sbin"
         ))
 
         if self.notebook_dir:
